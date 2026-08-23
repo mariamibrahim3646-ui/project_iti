@@ -49,23 +49,23 @@ function Layout({ user, handleLogout, setUser }) {
 
         <Route path="/login" element={<Login onLoginSuccess={setUser} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route 
-          path="/profile" 
-          element={user ? <Profile user={user} onLogout={handleLogout} setUser={setUser} /> : <Navigate to="/login" />} 
+        <Route
+          path="/profile"
+          element={user ? <Profile user={user} onLogout={handleLogout} setUser={setUser} /> : <Navigate to="/login" />}
         />
 
         {/* مسارات لوحة التحكم (الأدمن) */}
-        <Route 
-          path="/admin" 
-          element={isAdmin ? <AdminOverview /> : <Navigate to="/login" replace />} 
+        <Route
+          path="/admin"
+          element={isAdmin ? <AdminOverview /> : <Navigate to="/login" replace />}
         />
-        <Route 
-          path="/admin/products" 
-          element={isAdmin ? <AdminProducts /> : <Navigate to="/login" replace />} 
+        <Route
+          path="/admin/products"
+          element={isAdmin ? <AdminProducts /> : <Navigate to="/login" replace />}
         />
-        <Route 
-          path="/admin/orders" 
-          element={isAdmin ? <AdminOrders /> : <Navigate to="/login" replace />} 
+        <Route
+          path="/admin/orders"
+          element={isAdmin ? <AdminOrders /> : <Navigate to="/login" replace />}
         />
       </Routes>
 
@@ -99,7 +99,7 @@ export default function App() {
     <ThemeProvider>
       <FavoritesProvider>
         <CartProvider>
-          <Router>
+          <Router basename="/project_iti">g
             <Layout user={user} handleLogout={handleLogout} setUser={setUser} />
           </Router>
         </CartProvider>
