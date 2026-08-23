@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Serene E-Commerce & Admin - Clean & Safe Responsive Stylesheet
+   ========================================================================== */
+
+/* 1. ضبط الصور والجدول فقط بدون المساس بـ containers الصفحة */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   تطبيقات الموبايل والتابلت فقط (خارج هذا النطاق الشاشة ديسكتاوب طبيعية)
+   ========================================================================== */
+
+/* --- شاشات التابلت والموبايل (أقل من 992px) --- */
+@media (max-width: 992px) {
+  /* تحويل Sidebar الأدمن لأعلى الشاشة */
+  div:has(> aside) {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  aside {
+    width: 100% !important;
+  }
+
+  aside > div:first-child {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* كروت الإحصائيات في الأدمن: عمودين بدلاً من 4 */
+  main > div:first-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* --- شاشات الموبايل (أقل من 768px) --- */
+@media (max-width: 768px) {
+  /* شريط الفلترة والترتيب في المتجر */
+  div[style*="position: sticky"] > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* صفحة تفاصيل المنتج (تراصف الصورة والتفاصيل رأسياً) */
+  div:has(> img[alt]) {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* الفوتر */
+  footer > div:first-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* --- شاشات الموبايل الصغيرة (أقل من 576px) --- */
+@media (max-width: 576px) {
+  /* كروت إحصائيات الأدمن: عمود واحد */
+  main > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* إتاحة التمرير الأفقي للجدول فقط داخل لوحة التحكم */
+  div:has(> table) {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  main table {
+    min-width: 550px;
+  }
+
+  /* الفوتر على الموبايل */
+  footer > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer > div:last-child {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}
